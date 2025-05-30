@@ -1,0 +1,11 @@
+.venv
+env.sh
+*.mrc
+*.jsonl
+__pycache__
+*.log
+*.tsv
+*.gz
+*rsa
+*.sh
+CLAUDE.md

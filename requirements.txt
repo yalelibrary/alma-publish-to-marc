@@ -1,0 +1,6 @@
+pymarc
+psycopg2-binary
+python-dateutil
+requests
+paramiko
+boto3

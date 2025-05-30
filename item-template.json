@@ -1,0 +1,114 @@
+{
+    "bib_data" : {
+      "mms_id" : "<mms_id>"
+    },
+    "holding_data" : {
+      "holding_id" : "<$0>",
+      "holding_suppress_from_publishing" : "false",
+      "calculated_suppress_from_publishing" : "false",
+      "permanent_call_number_type" : {
+        "value" : "<$j>"
+      },
+      "permanent_call_number" : "<$o>",
+      "call_number_type" : {
+        "value" : "<$j>"
+      },
+      "call_number" : "<$o>",
+      "accession_number" : "",
+      "copy_id" : "<$b>",
+      "due_back_date" : "<$5>",
+      "in_temp_location" : "<in_temp_location>",
+      "temp_library" : {
+        "value" : "<$i>" },
+      "temp_location" : {
+        "value" : "<$t>"
+      },
+      "temp_call_number_type" : {
+        "value" : "<$l>"
+      },
+      "temp_call_number" : "<$q>",
+      "temp_call_number_source" : "",
+      "temp_policy" : {
+        "value" : ""
+      }
+    },
+    "item_data" : {
+      "pid" : "<$2>",
+      "barcode" : "<$1>",
+      "policy" : {
+        "value" : "<$c>"
+      },
+      "provenance" : {
+        "value" : "<$d>"
+      },
+      "description" : "<$g>",
+      "library" : {
+        "value" : "<$h>"
+      },
+      "location" : {
+        "value" : "<$s>"
+      },
+      "pages" : "",
+      "pieces" : "<$3>",
+      "requested" : false,
+      "creation_date" : "<$w>",
+      "modification_date" : "<$r>",
+      "arrival_date" : "<$y>",
+      "inventory_date" : "<$z>",
+      "base_status" : {
+        "value" : "<$x>"
+      },
+      "awaiting_reshelving" : false,
+      "physical_material_type" : {
+        "value" : "<$4>"
+      },
+      "po_line" : "",
+      "year_of_issue" : "",
+      "enumeration_a" : "<$e>",
+      "enumeration_b" : "<$u>",
+      "enumeration_c" : "",
+      "enumeration_d" : "",
+      "enumeration_e" : "",
+      "enumeration_f" : "",
+      "enumeration_g" : "",
+      "enumeration_h" : "",
+      "chronology_i" : "<$f>",
+      "chronology_j" : "<$v>",
+      "chronology_k" : "",
+      "chronology_l" : "",
+      "chronology_m" : "",
+      "break_indicator" : {
+        "value" : ""
+      },
+      "pattern_type" : {
+        "value" : ""
+      },
+      "linking_number" : "",
+      "type_of_unit" : "",
+      "receiving_operator" : "",
+      "process_type" : {
+        "value" : "<$6>"
+      },
+      "inventory_number" : "<$m>",
+      "inventory_price" : "",
+      "alternative_call_number" : "",
+      "alternative_call_number_type" : {
+        "value" : "<$k>"
+      },
+      "storage_location_id" : "<$n>",
+      "public_note" : "",
+      "fulfillment_note" : "",
+      "internal_note_1" : "",
+      "internal_note_2" : "",
+      "internal_note_3" : "<$a>",
+      "statistics_note_1" : "<$9>",
+      "statistics_note_2" : "",
+      "statistics_note_3" : "",
+      "physical_condition" : { },
+      "committed_to_retain" : { },
+      "retention_reason" : {
+        "value" : ""
+      },
+      "retention_note" : ""
+    }
+  }
