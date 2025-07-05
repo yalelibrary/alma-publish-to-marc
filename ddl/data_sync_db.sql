@@ -18,6 +18,8 @@ DROP TABLE IF EXISTS public.location_circ_desk  CASCADE;
 DROP TABLE IF EXISTS public.record_set CASCADE;
 DROP TABLE IF EXISTS public.user_details  CASCADE;
 DROP TABLE IF EXISTS public.external_id  CASCADE;
+DROP TABLE IF EXISTS public.request_event CASCADE;
+
 # FULL
 DROP TABLE IF EXISTS public.record_update  CASCADE;
 DROP SEQUENCE IF EXISTS public.circ_desk_id_se CASCADE;
@@ -289,8 +291,6 @@ ALTER TABLE ONLY public.external_id
 CREATE INDEX external_id_record_id_ix ON public.external_id USING btree (record_id);
 CREATE INDEX external_id_external_id_type_ix ON public.external_id USING btree (external_id_type, external_value);
 CREATE INDEX external_id_external_value_ix ON public.external_id USING btree (external_value);
-
-# FULL
 CREATE TABLE public.request_event (
     request_id character varying(255),
     create_date_time timestamp(6) without time zone,
@@ -319,8 +319,8 @@ CREATE TABLE public.request_event (
     expiry_date timestamp(6) without time zone,
     last_interest_date timestamp(6) without time zone
 );
-ALTER TABLE ONLY public.request_event
-    ADD CONSTRAINT request_event_pkey PRIMARY KEY (request_id);
+
+ALTER TABLE ONLY public.request_event ADD CONSTRAINT request_event_pkey PRIMARY KEY (request_id);
 CREATE INDEX request_event_mmsid_id_ix ON public.request_event USING btree (mms_id);
 CREATE INDEX request_event_request_id_ix ON public.request_event USING btree (request_id);
 CREATE INDEX request_event_request_status_ix ON public.request_event USING btree (request_status);
@@ -467,7 +467,7 @@ SELECT
  chron,
  voyager_item_id,
  inventory_date_time,
- material_type,
+ it.material_type,
  pieces,
  copy_id,
  policy,
