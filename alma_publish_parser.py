@@ -293,8 +293,12 @@ def process_publish_marc(publish_files, max_workers, callback_creator):
         else:
             parse_file(publish_files, item_template, callback_creator)
     elif os.path.isdir(publish_files):
-            files = [os.path.join(publish_files, file) for file in os.listdir(publish_files)]
-            process_files(max_workers, callback_creator, item_template, files)
+            logger.info('processing directory')
+            all_files = [os.path.join(publish_files, file) for file in os.listdir(publish_files)]
+            all_files.sort()
+            for file_set in group_files(all_files):
+                process_files(max_workers, callback_creator, item_template, file_set)
+                logger.info('finished set')
     logger.info(f'Records:\t{cnt}\nBibs:   \t{cnt_bibs}\nHoldings:\t{cnt_holdings}\nItems:   \t{cnt_items}\nDeletes:   \t{cnt_deletes}\nErrors:   \t{cnt_errors}\nElapsed {(time.time() - start_time)} seconds')
     return {
         'files': cnt_files,
@@ -303,19 +307,24 @@ def process_publish_marc(publish_files, max_workers, callback_creator):
         'delete': cnt_deletes
     }
 
+def file_prefix(file):
+    file = re.sub(r'_[a-z]+_\d+\.tar\.gz$', '', file)
+    return re.sub(r'_[a-z]+.tar\.gz$', '', file)
+
 def group_files(files):
     groups = []
     current_group = None
     current_dir = None
     for file in files:
-        if os.path.dirname(file) != current_dir:
+        if file_prefix(file) != current_dir:
             if current_group:
                 groups.append(current_group)
             current_group = []
-            current_dir = os.path.dirname(file)
+            current_dir = file_prefix(file)
         current_group.append(file)
     if current_group:
         groups.append(current_group)
+    logger.info(f'Grouping files as {groups}')
     return groups
 
 def process_files(max_workers, callback_creator, item_template, files):

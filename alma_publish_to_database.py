@@ -41,10 +41,15 @@ def configure_logging(name):
     log_level = os.getenv("LOG_LEVEL", "INFO")
     root_logger.setLevel(log_level)
 
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
     console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
     root_logger.addHandler(console_handler)
 
     fh_info = logging.FileHandler(name)
+
+    fh_info.setFormatter(formatter)
     fh_info.setLevel(log_level)
 
     root_logger.addHandler(fh_info)
