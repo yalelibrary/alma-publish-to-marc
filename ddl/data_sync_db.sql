@@ -559,6 +559,4 @@ $item_delete$ LANGUAGE plpgsql;
 CREATE OR REPLACE TRIGGER item_delete BEFORE DELETE ON public.item
     FOR EACH ROW EXECUTE FUNCTION public.item_delete();
 
-
-
-
+CREATE INDEX item_location_ix ON public.item USING btree (perm_location_id); CREATE INDEX item_temp_location_ix ON public.item USING btree (temp_location_id); CREATE INDEX holding_location_ix ON public.holding_brief USING btree (location_id);
